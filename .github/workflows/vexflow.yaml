@@ -22,5 +22,8 @@ jobs:
     steps:
         - name: Setup vexflow
           uses: carabiner-dev/actions/install/vexflow@HEAD
-        - run: |
+        - name: Run vexflow update
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          run: |
             vexflow update carabiner-dev/ampel
