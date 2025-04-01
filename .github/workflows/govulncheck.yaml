@@ -6,9 +6,10 @@ on:
 permissions:
   contents: read
 
+name: govulncheck
 
 jobs:
-  osv-scan:
+  govulncheck:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
