@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
-          repository: ${{ github.event.repository.owner }}/lab-vexable-repo
+          repository: ${{ github.event.repository.owner.login }}/lab-vexable-repo
           ref: main
 
       - name: Setup bnd
@@ -41,7 +41,7 @@ jobs:
               revex --filter-status=not_affected \
                     --gvc-fix-purls \
                     --gvc-product-hash=sha-256:9d10014412bb8f127e0d8b41df590a8154a213035bfc7688d211bdaea9c56835 \
-                    --gvc-product-id=git+https://github.com/${{ github.event.repository.owner }}/lab-vexable-repo@main > vulncheck.openvex.json
+                    --gvc-product-id=git+https://github.com/${{ github.event.repository.owner.login }}/lab-vexable-repo@main > vulncheck.openvex.json
       -  name: "Sign and push attestation"
          env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
