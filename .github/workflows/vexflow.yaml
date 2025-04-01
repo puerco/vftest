@@ -5,6 +5,12 @@ name: vexflow
 
 on:
   workflow_dispatch: {}
+  # schedule:
+  #   - cron:  '30 5,17 * * *'
+  issue_comment:
+    types:
+      - created
+
 
 permissions:
   contents: read
@@ -26,4 +32,4 @@ jobs:
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           run: |
-            vexflow update carabiner-dev/ampel
+            vexflow update puerco/lab-vexable-repo
