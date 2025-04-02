@@ -37,8 +37,7 @@ jobs:
       #       .
       - name: Generate Golvulncheck VEX
         run: |
-            go install golang.org/x/vuln/cmd/govulncheck@latest
-            govulncheck -format=openvex ./... | \
+            go run golang.org/x/vuln/cmd/govulncheck@latest -format=openvex ./... | \
               revex --filter-status=not_affected \
                     --gvc-fix-purls \
                     --gvc-product-hash=sha-256:9d10014412bb8f127e0d8b41df590a8154a213035bfc7688d211bdaea9c56835 \
